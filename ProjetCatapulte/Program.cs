@@ -13,6 +13,8 @@ namespace ProjetCatapulte
             Catapulte cat = new Catapulte();
             cat.afficherParametres();
 
+            
+
             Console.ReadLine();
         }
     }
