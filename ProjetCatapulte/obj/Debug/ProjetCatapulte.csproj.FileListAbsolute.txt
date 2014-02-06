@@ -1,7 +1,1 @@
-C:\Users\rMz\AppData\Local\Temporary Projects\ProjetCatapulte\bin\Debug\ProjetCatapulte.exe.config
 C:\Users\Flo\Documents\GitHub\ProjetCatapulte\ProjetCatapulte\bin\Debug\ProjetCatapulte.exe.config
-C:\Users\Flo\Documents\GitHub\ProjetCatapulte\ProjetCatapulte\bin\Debug\ProjetCatapulte.exe
-C:\Users\Flo\Documents\GitHub\ProjetCatapulte\ProjetCatapulte\bin\Debug\ProjetCatapulte.pdb
-C:\Users\Flo\Documents\GitHub\ProjetCatapulte\ProjetCatapulte\obj\Debug\ProjetCatapulte.csprojResolveAssemblyReference.cache
-C:\Users\Flo\Documents\GitHub\ProjetCatapulte\ProjetCatapulte\obj\Debug\ProjetCatapulte.exe
-C:\Users\Flo\Documents\GitHub\ProjetCatapulte\ProjetCatapulte\obj\Debug\ProjetCatapulte.pdb

@@ -43,6 +43,10 @@ namespace ProjetCatapulte
 
         }
 
+
+        /*
+         *  Fonction d'affichage des paramètres de la catapulte
+         */
         public void afficherParametres()
         {
             Console.WriteLine("----------------------------------------");
@@ -52,6 +56,7 @@ namespace ProjetCatapulte
             Console.WriteLine("Angle force traction : " + angleForceTraction + " degrés ");
             Console.WriteLine("Masse projectile : " + masseProjectile + " kgs ");
             Console.WriteLine("Longueur de la base : " + longueurBase + " mètres ");
+            Console.WriteLine("----------------------------------------");
         }
 
         
