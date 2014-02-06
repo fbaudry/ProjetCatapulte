@@ -8,13 +8,13 @@ namespace ProjetCatapulte
 {
     class Catapulte
     {
-        float hauteurBute;
-        float longueurBras;
-        float masseBras;
-        float angleForceTraction;
-        float masseContrePoid;
-        float masseProjectile;
-        float longueurBase;
+        double hauteurBute;
+        double longueurBras;
+        double masseBras;
+        double angleForceTraction;
+        double masseContrePoid;
+        double masseProjectile;
+        double longueurBase;
 
 
         /*
@@ -27,15 +27,20 @@ namespace ProjetCatapulte
          */
         public Catapulte()
         {
+            
+            hauteurBute = getRandomNumber(1,180); // Angle de la butée
+            longueurBras = getRandomNumber(1, 10); // En mètres
+            masseBras = getRandomNumber(1, 30);    // En kilos
+            angleForceTraction = getRandomNumber(1, 180); // En degrés
+            masseContrePoid = getRandomNumber(1, 30); // En kilos
+            masseProjectile = getRandomNumber(1, 30); // En kilos
+            longueurBase = getRandomNumber(1, 10); // En mètres
+        }
+        public double getRandomNumber(double min, double max)
+        {
             Random value = new Random();
+            return Math.Round(value.NextDouble() * (max - min) + min,2);
 
-            hauteurBute = value.Next();
-            longueurBras = value.Next();
-            masseBras = value.Next();
-            angleForceTraction = value.Next();
-            masseContrePoid = value.Next();
-            masseProjectile = value.Next();
-            longueurBase = value.Next();
         }
 
         public void afficherParametres()
