@@ -10,6 +10,10 @@ namespace ProjetCatapulte
     {
         static void Main(string[] args)
         {
+            Catapulte cat = new Catapulte();
+            cat.afficherParametres();
+
+            Console.ReadLine();
         }
     }
 }
