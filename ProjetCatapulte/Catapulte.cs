@@ -35,6 +35,7 @@ namespace ProjetCatapulte
             masseContrePoid = getRandomNumber(1, 30); // En kilos
             masseProjectile = getRandomNumber(1, 30); // En kilos
             longueurBase = getRandomNumber(1, 10); // En mètres
+
         }
         public double getRandomNumber(double min, double max)
         {
@@ -57,9 +58,53 @@ namespace ProjetCatapulte
             Console.WriteLine("Masse projectile : " + masseProjectile + " kgs ");
             Console.WriteLine("Longueur de la base : " + longueurBase + " mètres ");
             Console.WriteLine("----------------------------------------");
+
         }
 
-        
+        public double forceTraction()
+        {
+            return (masseContrePoid * Constantes.gTerre) * Math.Sin(angleForceTraction) - (masseProjectile * Constantes.gTerre) * Math.Cos(hauteurBute);
 
+        }
+
+        public double momentBras()
+        {
+            return (forceTraction() * longueurBras);
+        }
+
+        public double momentInertieBras()
+        {
+            return (masseBras * Math.Pow(longueurBras, 2))/3;
+        }
+
+        public double accelerationAngulaire()
+        {
+            return (momentBras() / momentInertieBras());
+        }
+
+        public double velocite()
+        {
+            return (accelerationAngulaire() * longueurBras);
+        }
+
+        public double portee()
+        {
+            return ((Math.Pow(velocite(), 2) / Constantes.gTerre) * Math.Sin(2*(90 - hauteurBute)));
+        }
+
+        public double energieImpact()
+        {
+            return (0.5 * masseProjectile * Math.Pow(velocite(), 2));
+        }
+        public bool estViable()
+        {
+            var var1 = (Math.Pow((Math.Sin(hauteurBute * longueurBras)), 2) + Math.Pow(Math.Cos(hauteurBute) * longueurBras - longueurBase, 2)) * Math.Sin(hauteurBute) * (masseProjectile * Constantes.gTerre);
+            var var2 = longueurBase * (masseContrePoid * Constantes.gTerre);
+            
+            if (var1 <= var2)
+                return true;
+            else
+                return false;
+        }
     }
 }
