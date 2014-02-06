@@ -1,0 +1,4 @@
+- Création aléatoire de catapultes
+- note par catapulte en fonction des propriétés
+- selectionner aléatoirement la moitié des catapultes
+- On croise les catapultes pour créer des nouvelles catapultes 
