@@ -21,7 +21,8 @@ namespace ProjetCatapulte
         public static double stepMetre = 1;
         public static double stepMasse = 3;
 
+        public static double stepPourcentageNote = 10;
+        public static double noteStandard = 5;
         public static double portee = 150;
-
     }
 }

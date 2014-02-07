@@ -4,3 +4,9 @@ C:\Users\Flo\Documents\GitHub\ProjetCatapulte\ProjetCatapulte\bin\Debug\ProjetCa
 C:\Users\Flo\Documents\GitHub\ProjetCatapulte\ProjetCatapulte\obj\Debug\ProjetCatapulte.exe
 C:\Users\Flo\Documents\GitHub\ProjetCatapulte\ProjetCatapulte\obj\Debug\ProjetCatapulte.pdb
 C:\Users\Flo\Documents\GitHub\ProjetCatapulte\ProjetCatapulte\obj\Debug\ProjetCatapulte.csprojResolveAssemblyReference.cache
+C:\Users\Rousseaux\Documents\GitHub\ProjetCatapulte\ProjetCatapulte\bin\Debug\ProjetCatapulte.exe.config
+C:\Users\Rousseaux\Documents\GitHub\ProjetCatapulte\ProjetCatapulte\bin\Debug\ProjetCatapulte.exe
+C:\Users\Rousseaux\Documents\GitHub\ProjetCatapulte\ProjetCatapulte\bin\Debug\ProjetCatapulte.pdb
+C:\Users\Rousseaux\Documents\GitHub\ProjetCatapulte\ProjetCatapulte\obj\Debug\ProjetCatapulte.csprojResolveAssemblyReference.cache
+C:\Users\Rousseaux\Documents\GitHub\ProjetCatapulte\ProjetCatapulte\obj\Debug\ProjetCatapulte.exe
+C:\Users\Rousseaux\Documents\GitHub\ProjetCatapulte\ProjetCatapulte\obj\Debug\ProjetCatapulte.pdb

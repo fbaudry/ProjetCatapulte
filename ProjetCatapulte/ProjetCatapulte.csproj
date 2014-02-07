@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Catapulte.cs" />
+    <Compile Include="CatapulteManager.cs" />
     <Compile Include="Constantes.cs" />
     <Compile Include="Contraintes.cs" />
     <Compile Include="Notation.cs" />
