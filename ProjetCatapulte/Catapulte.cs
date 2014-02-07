@@ -9,13 +9,18 @@ namespace ProjetCatapulte
     class Catapulte
     {
         double hauteurBute;
+
+        public double HauteurBute
+        {
+            get { return hauteurBute; }
+            set { hauteurBute = value; }
+        }
         double longueurBras;
         double masseBras;
         double angleForceTraction;
         double masseContrePoid;
         double masseProjectile;
         double longueurBase;
-
 
         /*
          * Constructeur par default
@@ -27,21 +32,18 @@ namespace ProjetCatapulte
          */
         public Catapulte()
         {
-            
-            hauteurBute = getRandomNumber(1,180); // Angle de la butée
-            longueurBras = getRandomNumber(1, 10); // En mètres
-            masseBras = getRandomNumber(1, 30);    // En kilos
-            angleForceTraction = getRandomNumber(1, 180); // En degrés
-            masseContrePoid = getRandomNumber(1, 30); // En kilos
-            masseProjectile = getRandomNumber(1, 30); // En kilos
-            longueurBase = getRandomNumber(1, 10); // En mètres
+            this.hauteurBute = getRandomNumber(1,180); // Angle de la butée
+            this.longueurBras = getRandomNumber(1, 10); // En mètres
+            this.masseBras = getRandomNumber(1, 30);    // En kilos
+            this.angleForceTraction = getRandomNumber(1, 180); // En degrés
+            this.masseContrePoid = getRandomNumber(1, 30); // En kilos
+            this.masseProjectile = getRandomNumber(1, 30); // En kilos
+            this.longueurBase = getRandomNumber(1, 10); // En mètres
 
         }
         public double getRandomNumber(double min, double max)
         {
-            Random value = new Random();
-            return Math.Round(value.NextDouble() * (max - min) + min,2);
-
+            return Math.Round(Constantes.random.NextDouble() * (max - min) + min,2);
         }
 
 
@@ -63,48 +65,75 @@ namespace ProjetCatapulte
 
         public double forceTraction()
         {
-            return (masseContrePoid * Constantes.gTerre) * Math.Sin(angleForceTraction) - (masseProjectile * Constantes.gTerre) * Math.Cos(hauteurBute);
+            return Math.Round((masseContrePoid * Constantes.GTERRE) * Math.Sin(angleForceTraction) - (masseProjectile * Constantes.GTERRE) * Math.Cos(hauteurBute), 2);
 
         }
 
         public double momentBras()
         {
-            return (forceTraction() * longueurBras);
+            return Math.Round((forceTraction() * longueurBras), 2);
         }
 
         public double momentInertieBras()
         {
-            return (masseBras * Math.Pow(longueurBras, 2))/3;
+            return Math.Round((masseBras * Math.Pow(longueurBras, 2))/3, 2);
         }
 
         public double accelerationAngulaire()
         {
-            return (momentBras() / momentInertieBras());
+            return Math.Round((momentBras() / momentInertieBras()), 2);
         }
 
         public double velocite()
         {
-            return (accelerationAngulaire() * longueurBras);
+            return Math.Round((accelerationAngulaire() * longueurBras), 5);
         }
 
         public double portee()
         {
-            return ((Math.Pow(velocite(), 2) / Constantes.gTerre) * Math.Sin(2*(90 - hauteurBute)));
+            var portee = Math.Round(((Math.Pow(velocite(), 2) / Constantes.GTERRE) * Math.Sin(2 * (90 - hauteurBute))), 2);
+
+            if (portee > 0)
+                return portee;
+            else
+                return 0;
         }
 
         public double energieImpact()
         {
-            return (0.5 * masseProjectile * Math.Pow(velocite(), 2));
+            return Math.Round((0.5 * masseProjectile * Math.Pow(velocite(), 2)), 2);
         }
         public bool estViable()
         {
-            var var1 = (Math.Pow((Math.Sin(hauteurBute * longueurBras)), 2) + Math.Pow(Math.Cos(hauteurBute) * longueurBras - longueurBase, 2)) * Math.Sin(hauteurBute) * (masseProjectile * Constantes.gTerre);
-            var var2 = longueurBase * (masseContrePoid * Constantes.gTerre);
+            var var1 = (Math.Pow((Math.Sin(hauteurBute * longueurBras)), 2) + Math.Pow(Math.Cos(hauteurBute) * longueurBras - longueurBase, 2)) * Math.Sin(hauteurBute) * (masseProjectile * Constantes.GTERRE);
+            var var2 = longueurBase * (masseContrePoid * Constantes.GTERRE);
             
             if (var1 <= var2)
                 return true;
             else
                 return false;
         }
+
+        public void afficherPortee()
+        {
+            Console.WriteLine("La portee de la catapulte est de : " + portee() + "m");
+        }
+
+
+        public double noteMoyenne()
+        {
+            double noteHauteurBute = Notation.note(hauteurBute, Contraintes.hauteurBute, Contraintes.stepAngle);
+            double noteLongueurBras = Notation.note(longueurBras, Contraintes.longueurBras, Contraintes.stepMetre);
+            double noteMasseBras = Notation.note(masseBras, Contraintes.masseBras, Contraintes.stepMasse);
+            double noteAngleForceTraction = Notation.note(angleForceTraction, Contraintes.angleForceTraction, Contraintes.stepAngle);
+            double noteMasseContrePoid = Notation.note(masseContrePoid, Contraintes.masseContrePoid, Contraintes.stepMasse);
+            double noteMasseProjectile = Notation.note(masseProjectile, Contraintes.masseProjectile, Contraintes.stepMasse);
+            double noteLongueurBase = Notation.note(longueurBase, Contraintes.longueurBase, Contraintes.stepMetre);
+
+            return Math.Round((noteHauteurBute + noteLongueurBras + noteMasseBras + noteAngleForceTraction + noteMasseContrePoid + noteMasseProjectile + noteLongueurBase)/7, 2);
+        }
+
+
+        
     }
 }

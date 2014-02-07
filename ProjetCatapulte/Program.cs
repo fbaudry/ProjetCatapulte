@@ -10,11 +10,20 @@ namespace ProjetCatapulte
     {
         static void Main(string[] args)
         {
-            Catapulte cat = new Catapulte();
-            cat.afficherParametres();
 
-            
+            // Création d'un jeu de catapultes
+            List<Catapulte> catapultes = new List<Catapulte>();
 
+            Console.WriteLine("Création du jeu de données (" + Constantes.NB_CATAPULTE + " catapultes)");
+
+            for (int i = 0; i < Constantes.NB_CATAPULTE; i++)
+            {
+                Catapulte catapulte = new Catapulte();
+                Console.WriteLine("Note moyenne de la catapulte :" + catapulte.noteMoyenne());
+                catapultes.Add(catapulte);
+            }
+
+       
             Console.ReadLine();
         }
     }
